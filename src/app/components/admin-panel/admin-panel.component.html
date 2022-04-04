@@ -1,0 +1,76 @@
+<main class="box">
+
+  <section class="container">
+    <mat-tab-group>
+      <mat-tab label="{{ 'products' | transloco }}"> <section>
+        <div class="buttons"><button class="btn btn-outline-success" (click)="update()">{{ 'update' | transloco }}</button><button class="btn btn-outline-success" (click)="createproduct()">{{ 'addNewProduct' | transloco }}</button></div>
+        <div class="productlist">
+          <table mat-table matSort [dataSource]="productSer.products" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="No">
+              <th mat-header-cell  *matHeaderCellDef > No. </th>
+              <td mat-cell *matCellDef="let element;let i=index" > {{i+1}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Title">
+              <th mat-header-cell *matHeaderCellDef >{{ 'title' | transloco }}</th>
+              <td mat-cell *matCellDef="let element"> {{element.title | slice:0:15}}... </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Category">
+              <th mat-header-cell *matHeaderCellDef >{{ 'category' | transloco }}</th>
+              <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Price">
+              <th mat-header-cell *matHeaderCellDef >{{ 'price' | transloco }}</th>
+              <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
+            </ng-container>
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef>{{ 'action' | transloco }}</th>
+              <td mat-cell *matCellDef="let element"><button class="btn-transparent" (click)="productDelete(element.id)"><img src="../../../assets/trash-garbage-svgrepo-com.svg"
+                width="24px"></button><button class="btn-transparent" (click)="editProduct(element)"><img src="../../../assets/edit-svgrepo-com.svg"
+                  width="24px"></button></td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        </div>
+      </section> </mat-tab>
+      <mat-tab label="{{ 'statistics' | transloco }}"> <figure>
+        <div class="chart">
+          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [legend]="barChartLegend" type="line">
+          </canvas>
+
+
+        </div>
+      </figure>
+      <section>
+        <div class="items">
+          <div class="cards">{{ 'totalOrder' | transloco }}</div>
+          <div class="cards">{{ 'income' | transloco }}</div>
+        </div>
+      </section> </mat-tab>
+      <mat-tab label="Orders"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+
+
+    <!----last-->
+
+
+
+  </section>
+
+</main>

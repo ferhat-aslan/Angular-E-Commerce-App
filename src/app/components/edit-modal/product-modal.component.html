@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{data ? 'editProduct':'createProduct' | transloco}}</h2>
+<div mat-dialog-content class="mat-typography">
+  <form [formGroup]="editForm">
+  <input formControlName="title" class="css-input form-control mb-2" name="title"  type="text" placeholder="Title" >
+  <small class="text-danger "
+  *ngIf="editForm.get('title') && !editForm.get('title')!.valid && editForm.get('title')!.touched;else title_content"><em>{{'titleReq' | transloco}}</em></small>
+  <ng-template #title_content><label
+    >     </label> </ng-template>
+  <input formControlName="price" class="css-input form-control mb-2" name="price"  type="text" placeholder="Price" >
+  <small class="text-danger "
+  *ngIf="editForm.get('price') && !editForm.get('price')!.valid && editForm.get('price')!.touched;else price_content"><em>{{'priceReq' | transloco}}</em></small>
+  <ng-template #price_content><label
+    >      </label> </ng-template>
+  <select formControlName="category" class="form-select mb-2" name="category" >
+    <option  value="electronics">{{'electronics' | transloco}}</option>
+    <option value="jewelery">{{'jewelery' | transloco}}</option>
+    <option value="men's clothing">{{'mensClothing' | transloco}}</option>
+    <option value="women's clothing">{{'womensClothing' | transloco}}</option>
+  </select>
+  <label
+    >      </label>
+  <input formControlName="image" class="css-input form-control mb-2" name="image"  type="text" placeholder="Image" >
+  <small class="text-danger "
+  *ngIf="editForm.get('image') && !editForm.get('image')!.valid && editForm.get('image')!.touched;else image_content"><em>{{'imageReq' | transloco}}</em></small>
+  <ng-template #image_content><label
+    >     </label></ng-template>
+
+  <textarea formControlName="description" placeholder="Description" name="description"  cols="30" rows="4" class="form-control"></textarea>
+  <small class="text-danger "
+  *ngIf="editForm.get('description') && !editForm.get('description')!.valid && editForm.get('description')!.touched;else description_content"><em>{{'descReq' | transloco}}</em></small>
+  <ng-template #description_content><label
+    >      </label> </ng-template>
+</form>
+</div>
+<div mat-dialog-actions align="end">
+  <button (click)="close()" mat-button mat-dialog-close class="btn btn-outline">{{'cancel' | transloco}}</button>
+  <button [disabled]="this.editForm.invalid" mat-button mat-dialog-close cdkFocusInitial (click)="data ? editProduct():createProduct()" class="btn btn-dark">{{data ? 'edit':'create' | transloco}}</button>
+</div>

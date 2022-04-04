@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light  shadow-sm">
+  <div class="container-fluid">
+    <img src="../../../assets/logo.png" width="65px" height="auto" class="logo">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span> <img class="menu-icon" src="../../../assets/3053386.png" alt=""></span>
+      <!-- class="navbar-toggler-icon"-->
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a [routerLink]="['home']" class="nav-link " aria-current="page" routerLinkActive="active">{{ 'home' |
+            transloco }}</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="adminControl()" [routerLink]="['admin']" class="nav-link " aria-current="page"
+            routerLinkActive="active">{{ 'adminPanel' | transloco }}</a>
+        </li>
+
+        <li class="nav-item">
+          <a *ngIf="loginControl()" [routerLink]="['../profile']" class="nav-link  " aria-current="page" type="button"
+            routerLinkActive="active">{{ 'profile' | transloco }}</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: red;" *ngIf="loginControl() || adminControl()" (click)="logout()" class="nav-link "
+            aria-current="page" type="button" routerLinkActive="active">{{ 'logout' | transloco }}</a>
+        </li>
+
+      </ul>
+      <form class="d-flex">
+        <select (change)="lang($event)"  id="language"
+        >
+        <option value='en' selected  >En</option>
+        <option value='tr' >Tr</option>
+
+
+      </select>
+        <input class="css-input" [(ngModel)]="searchString" (keyup)="search($event)" type="text"
+          [placeholder]="'search' | transloco" aria-label="Search" [ngModelOptions]="{standalone: true}">
+
+      </form>
+      <button [routerLink]="['cart']" class="btn d-flex btn-dark" type="button"><i
+          style="font-size: 19px; color: black;" class="fas fa-cart-plus"></i>
+        <div style="font-size: 13px;" class="badge bg-danger">{{itemNumber}}</div>
+      </button>
+    </div>
+  </div>
+</nav>

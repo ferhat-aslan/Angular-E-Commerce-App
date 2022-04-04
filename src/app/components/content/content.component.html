@@ -1,0 +1,52 @@
+<div class=" shadow-lg mx-auto "
+  style="padding: 25px ;margin-top: 15px ;width: 90vw; height: 25px; border-radius: 25px;justify-content: center;align-items: center;display: flex; background-color: white;">
+
+  <div class="mx-auto"> {{ 'categories' | transloco }}: <select class="mx-auto" style="border-radius: 25px; border: 1px solid grey;"
+      (change)="changeCategory($event)" value="All">
+      <option [ngValue]="null" disabled>{{ 'selectCategory' | transloco }}</option>
+      <option selected value=''>{{ 'all' | transloco }}</option>
+      <option value="electronics">{{ 'electronics' | transloco }}</option>
+      <option value="jewelery">{{ 'jewelery' | transloco }} </option>
+      <option value="men's clothing">{{ 'mensClothing' | transloco }}</option>
+      <option value="women's clothing">{{ 'womensClothing' | transloco }}</option>
+    </select></div>
+  <div class="mx-auto">{{ 'sortBy' | transloco }}: <select style="border-radius: 25px; border: 1px solid grey;" (change)="sorting($event)"
+      value="All">
+      <option value='' selected>{{ 'none' | transloco }}</option>
+      <option value='price'>{{ 'price' | transloco }}</option>
+      <option value="rating">{{ 'rating' | transloco }}</option>
+
+    </select>
+  </div>
+  <!--
+   <div id="view" class="e-btn-group">
+		<input  type="radio" id="left" name="align" value="1" (click)="changeDisplay(1)"/>
+		<label class="e-btn" for="left">Grid View</label>
+		<input type="radio" id="right" name="align" value="2" (click)="changeDisplay(2)"/>
+		<label class="e-btn" for="right">List View</label>
+	</div>
+  -->
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #toggleGroup1="matButtonToggleGroup">
+    <mat-button-toggle checked="" value="grid"><img src="../../../assets/grid-svgrepo-com.svg" alt="" width="20px">
+    </mat-button-toggle>
+
+    <mat-button-toggle value="list"><img src="../../../assets/list-svgrepo-com (1).svg" alt="" width="20px">
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!---->
+</div>
+<section class="d-flex flex-wrap my-5" *ngIf="toggleGroup1.value == 'grid';else list_content">
+  <article class="card mx-auto my-3 shadow-lg text-center p-1" style="width: 18rem; max-height: 350px;"
+  *ngFor="let product of filterCategory | filter:searchKey:'title'">
+  <!--grid card here-->
+ <app-grid-view-card [product]="product"> </app-grid-view-card>
+</article>
+</section>
+<ng-template #list_content>
+  <section class="row p-2 bg-white border rounded list-items"
+    *ngFor="let product of filterCategory | filter:searchKey:'title'">
+    <!--List view card here-->
+    <app-list-view-card [product]="product"></app-list-view-card>
+</section>
+</ng-template>

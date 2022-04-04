@@ -1,0 +1,73 @@
+
+<!-- Toolbar -->
+
+
+<main class="container" role="main">
+
+
+  <div class="row justify-content-md-center row-cols-1 row-cols-sm-2">
+
+<div class="col">
+  <hr>
+    <h3>{{ 'login' | transloco }}</h3>
+
+    <form [formGroup]="loginForm" #f="ngForm" (submit)="login()">
+      <div class="form-group">
+        <label for="exampleInputEmail1" >{{ 'emailAddress' | transloco }}</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" id="email" formControlName="email">
+        <small class="text-danger "
+      *ngIf="loginForm.get('email') && !loginForm.get('email')!.valid && loginForm.get('email')!.touched"><em>{{ 'emalReq' | transloco }}</em></small>
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" id="password" formControlName="password">
+
+        <small class="text-danger "
+        *ngIf="loginForm.get('password') && !loginForm.get('password')!.valid && loginForm.get('password')!.touched"><em>{{ 'passReq' | transloco }}</em></small>
+      </div>
+      <hr>
+      <br>
+
+      <button type="submit" [disabled]="!loginForm.valid" class="btn btndark">{{ 'submit' | transloco }}</button>
+    </form>
+    <a routerLink="../register">{{ 'createnewuser' | transloco }}</a>
+  </div>
+  <!-- other column Steps -->
+  <figure class="col mt-5">
+    <h4>{{ 'pleaselogin' | transloco }}</h4>
+    <img src="../../../assets/login-image.png" alt="asdasd" width="50%" height="auto">
+  </figure>
+  </div>
+
+  <!-- Next Steps -->
+
+
+
+
+  <div class="spacer"></div>
+
+
+
+
+
+
+</main>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div #myNameElem class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+

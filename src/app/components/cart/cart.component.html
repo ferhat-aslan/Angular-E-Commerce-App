@@ -1,0 +1,95 @@
+<ng-container *ngIf="leng == 0">
+  <div class="text-center empty">{{ 'youdidnt' | transloco }}</div>
+  <div>
+    <button
+      [routerLink]="['../home']"
+      class="btn btn-dark text-center empty"
+      style="display: block; width: 125px"
+    >
+    {{ 'gotoshop' | transloco }}
+    </button>
+  </div></ng-container
+>
+<ng-container *ngIf="leng >= 1"
+  ><section class="card">
+    <div class="row">
+      <div class="col-md-8 cart">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4><b>{{ 'shoppingCart' | transloco }}</b></h4>
+            </div>
+            <div class="col align-self-center text-right text-muted">
+              {{ leng }} {{ 'items' | transloco }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="row border-top border-bottom"
+          *ngFor="let item of cartItems"
+        >
+          <div class="row main align-items-center">
+            <div class="col-2">
+              <img class="img-fluid" [src]="item.image" />
+            </div>
+            <div class="col">
+              <div class="row text-muted">
+                {{ item.title | slice: 0:15 }}...
+              </div>
+              <div class="row">{{ item.description | slice: 0:15 }}...</div>
+            </div>
+            <div class="col"><a>-</a><a class="border">1</a><a>+</a></div>
+            <div class="col">
+              &dollar; {{ item.price | number: "1.0-3" }}
+              <button
+                (click)="removeCart(item)"
+                style="background-color: transparent; border: none"
+              >
+                <img
+                  src="../../../assets/trash-can-solid.svg"
+                  width="15px"
+                  height="15px"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="back-to-shop">
+          <a href="#">&leftarrow;</a
+          ><span class="text-muted">{{ 'backToShop' | transloco }}</span>
+        </div>
+      </div>
+      <div class="col-md-4 summary">
+        <div>
+          <h5><b>{{ 'summary' | transloco }}</b></h5>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col" style="padding-left: 0">{{ 'items' | transloco }} {{ leng }}</div>
+          <div class="col text-right">
+            &dollar; {{ totalPrice | number: "1.0-0" }}
+          </div>
+        </div>
+        <form>
+          <p>{{ 'shipping' | transloco }}</p>
+          <select>
+            <option class="text-muted">{{ 'delivery' | transloco }}</option>
+          </select>
+          <p>{{ 'givecode' | transloco }}</p>
+          <input id="code" placeholder="Enter your code" />
+        </form>
+        <div
+          class="row"
+          style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+        >
+          <div class="col">{{ 'totalPrice' | transloco }}</div>
+          <div class="col text-right">
+            &dollar; {{ totalPrice! | number: "1.0-0" }}
+          </div>
+        </div>
+        <button class="btn" (click)="order()">{{ 'checkOut' | transloco }}</button>
+      </div>
+    </div>
+  </section></ng-container
+>

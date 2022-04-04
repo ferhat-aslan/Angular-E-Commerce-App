@@ -1,0 +1,153 @@
+<main class="mt-5 pt-4 ">
+  <div class="container dark-grey-text mt-5">
+
+    <!--Grid row-->
+    <div class="row wow fadeIn bg-light">
+
+      <!--Grid column-->
+      <figure class="col-md-6 mb-4 mx-auto" style="display:flex;justify-content: center; align-items: center;">
+
+        <img [src]="product?.image" style="max-width: 55%;" class="img-fluid mx-auto " alt="">
+
+      </figure>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <section class="col-md-6 mb-4">
+
+        <!--Content-->
+        <div class="p-4">
+
+          <div class="mb-3">
+            <a>
+              <span class="badge bg-info
+              mr-1 mx-2 px-2">{{product.category}}</span>
+            </a>
+            <a>
+              <span class="badge bg-info mr-1 mx-2 px-2">New</span>
+            </a>
+            <a>
+              <span class="badge bg-info mr-1 mx-2 px-2">Bestseller</span>
+            </a>
+          </div>
+
+          <p class="lead">
+            <span class="mr-1">
+
+            </span>
+            <span>{{product.price |currency:'USD'}}</span>
+          </p>
+
+          <p class="lead font-weight-bold">{{ 'description' | transloco }}</p>
+
+          <p>{{product.description | titlecase}}</p>
+
+          <form class="d-flex justify-content-left">
+            <!-- Default input -->
+            <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+            <button [ngStyle]="{backgroundColor:productControl(product)?'black':'transparent',color:productControl(product)?'white':'black'}"
+        (click)="productControl(product)?removeCart(product):addtocart(product)"
+        class="btn btn-dark btn-sm btn-cart">{{productControl(product)?'removeFromCart':'addToCart' | transloco }}</button>
+
+          </form>
+
+        </div>
+        <!--Content-->
+
+      </section>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr>
+
+    <!--Grid row-->
+    <section class="row d-flex justify-content-center wow fadeIn bg-light">
+
+      <!--Grid column-->
+      <div class="col-md-6 text-center">
+
+        <h4 class="my-4 h4">{{'addInfo' | transloco}}</h4>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
+          voluptates,
+          quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+
+      </div>
+      <!--Grid column-->
+
+    </section>
+    <!--Grid row-->
+
+    <!--Grid row-->
+    <section class="row wow fadeIn bg-light">
+      <div class="container mt-5 mb-5">
+        <div class="row height d-flex justify-content-center align-items-center">
+          <div class="col-md-7">
+            <div class="card">
+              <div class="p-3">
+                <h6>Comments</h6>
+              </div>
+              <div class="mt-3 d-flex flex-row align-items-center p-3 form-color"> <img
+                  src="https://i.imgur.com/zQZSWrt.jpg" width="50" class="rounded-circle mr-2"> <input type="text"
+                  class="form-control" placeholder="Enter your comment..."> </div>
+              <div class="mt-2">
+                <div class="d-flex flex-row p-3" *ngFor="let comment of product.comments"> <img
+                    src="https://upload.wikimedia.org/wikipedia/en/archive/b/b1/20210811082249%21Portrait_placeholder.png"
+                    width="40" height="40" class="rounded-circle mr-3">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex flex-row align-items-center"> <span class="mr-2">{{comment.username}}</span> <small
+                          class="c-badge mx-2">Top Comment</small> </div> <small>12h ago</small>
+                    </div>
+                    <p class="text-justify comment-text mb-0">{{comment.comment}}</p>
+                    <div class="d-flex flex-row user-feed"> <span class="wish"><i
+                          class="fa fa-heartbeat mr-2"></i>24</span> <span class="ml-3"><i
+                          class="fa fa-comments-o mr-2"></i>Reply</span> </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row p-3"> <img src="https://i.imgur.com/3J8lTLm.jpg" width="40" height="40"
+                    class="rounded-circle mr-3">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex flex-row align-items-center"> <span class="mr-2">Seltos Majito</span> <small
+                          class="c-badge mx-2">Top Comment</small> </div> <small>2h ago</small>
+                    </div>
+                    <p class="text-justify comment-text mb-0">Tellus in hac habitasse platea dictumst vestibulum. Lectus
+                      nulla at volutpat diam ut venenatis tellus. Aliquam etiam erat velit scelerisque in dictum non
+                      consectetur. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Tellus cras
+                      adipiscing enim eu turpis egestas pretium aenean pharetra. Aliquam faucibus purus in massa.</p>
+                    <div class="d-flex flex-row user-feed"> <span class="wish"><i
+                          class="fa fa-heartbeat mr-2"></i>14</span> <span class="ml-3"><i
+                          class="fa fa-comments-o mr-2"></i>Reply</span> </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row p-3"> <img src="https://i.imgur.com/agRGhBc.jpg" width="40" height="40"
+                    class="rounded-circle mr-3">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex flex-row align-items-center"> <span class="mr-2">Maria Santola</span> <small
+                          class="c-badge mx-2">Top Comment</small> </div> <small>12h ago</small>
+                    </div>
+                    <p class="text-justify comment-text mb-0"> Id eu nisl nunc mi ipsum faucibus. Massa massa ultricies
+                      mi quis hendrerit dolor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Habitasse
+                      platea dictumst quisque sagittis purus sit amet volutpat. Urna condimentum mattis pellentesque
+                      id.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <div class="d-flex flex-row user-feed"> <span class="wish"><i
+                          class="fa fa-heartbeat mr-2"></i>54</span> <span class="ml-3"><i
+                          class="fa fa-comments-o mr-2"></i>Reply</span> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!--Grid row-->
+
+  </div>
+</main>

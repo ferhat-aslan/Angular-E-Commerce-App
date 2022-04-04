@@ -1,0 +1,78 @@
+<main class="container" role="main">
+
+  <div class="row justify-content-md-center row-cols-1 row-cols-sm-2">
+
+  <div class=" col">
+    <hr>
+
+    <h3>Register</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="exampleInputPassword1">{{ 'firstName' | transloco }}</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="firstname" id="firstname"
+          formControlName="firstname">
+        <small class="text-danger "
+          *ngIf="registerForm.get('firstname') && !registerForm.get('firstname')!.valid && registerForm.get('firstname')!.touched"><em>{{ 'firstReq' | transloco }}</em></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">{{ 'lastName' | transloco }}</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="lastname" id="lastname"
+          formControlName="lastname">
+        <small class="text-danger "
+          *ngIf="registerForm.get('lastname') && !registerForm.get('lastname')!.valid && registerForm.get('lastname')!.touched"><em>
+            {{ 'lastReq' | transloco }}</em></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">{{ 'emailAddress' | transloco }}</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" id="email"
+          formControlName="email">
+        <small class="text-danger "
+          *ngIf="registerForm.get('email') && !registerForm.get('email')!.valid && registerForm.get('email')!.touched"><em>{{ 'emailConf' | transloco }}</em></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">{{ 'password' | transloco }}</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" id="password"
+          formControlName="password">
+        <small><em>{{ 'passMin' | transloco }}</em></small>
+        <div><small class="text-danger "
+            *ngIf="registerForm.get('password') && !registerForm.get('password')!.valid && registerForm.get('password')!.touched"><em>{{ 'passReq' | transloco }}</em></small></div>
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">{{ 'confPass' | transloco }}</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="confirmpassword"
+          id="confirmpassword" formControlName="confirmpassword">
+
+        <div><small class="text-danger"
+            *ngIf="registerForm.get('confirmpassword')?.hasError('confirmedValidator')"><em>{{ 'passMatch' | transloco }}</em></small>
+        </div>
+
+      </div>
+      <hr>
+      <br>
+
+
+      <button [disabled]="!registerForm.valid" type="submit" class="btn btndark">{{ 'register' | transloco }}</button>
+    </form>
+    <a routerLink="../login">{{ 'already' | transloco }}</a>
+     <!-- other col -->
+
+  </div>
+  <!-- other column Steps -->
+  <div class="col mt-5">
+    <h4>{{ 'pleaseRegister' | transloco }}</h4>
+    <img src="../../../assets/register-image.png" alt="asdasd" width="50%" height="auto">
+  </div>
+  </div>
+
+</main>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

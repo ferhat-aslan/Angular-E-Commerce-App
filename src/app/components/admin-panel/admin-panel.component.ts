@@ -23,6 +23,8 @@ export class AdminPanelComponent implements OnInit,OnDestroy {
   displayedColumns: string[] = ['No', 'Title', 'Category', 'Price','Action'];
   formstate:boolean=false;//if form is dirty (formstate=true) we will show a dialog.
   products: any;
+  orderProducts:any=[];
+  allOrder:any=[];
   sub1!: Subscription;
   sub2!: Subscription;  //for the unsubscribe process
   sub3!: Subscription;
@@ -53,7 +55,10 @@ export class AdminPanelComponent implements OnInit,OnDestroy {
       this.products = res;
 
     });
+    this.productSer.getUserOrder().subscribe(res=>{
+      this.allOrder=res
 
+    })
   }
 
 //some configurations of the chart
@@ -107,6 +112,7 @@ export class AdminPanelComponent implements OnInit,OnDestroy {
     //This function is called when the Edit button is pressed. and the product is sent as a parameter to modal.
 
   editProduct(product:Product){
+
     const dialogRef = this.dialog.open(ProductModalComponent, { width: '400px' ,data:product});
 
     /*dialogRef.afterClosed().subscribe((result) => {
@@ -151,4 +157,5 @@ export class AdminPanelComponent implements OnInit,OnDestroy {
     }
 
   }
+
 }

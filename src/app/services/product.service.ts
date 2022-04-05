@@ -63,6 +63,7 @@ export class ProductService {
       .get<Order>('https://patika-server-app.herokuapp.com/orders')
       .pipe();
   }
+
   newProduct<T>(req:any):Observable<T>{
     return this.http.post<T>("https://patika-server-app.herokuapp.com/products",req).pipe();
   }

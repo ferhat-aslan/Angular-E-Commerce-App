@@ -9,14 +9,14 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'firstName' | transloco }}</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="firstname" id="firstname"
+        <input type="text" class="form-control" id="exampleInputPassword1" [placeholder]="'firstName' | transloco" id="firstname"
           formControlName="firstname">
         <small class="text-danger "
           *ngIf="registerForm.get('firstname') && !registerForm.get('firstname')!.valid && registerForm.get('firstname')!.touched"><em>{{ 'firstReq' | transloco }}</em></small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'lastName' | transloco }}</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="lastname" id="lastname"
+        <input type="text" class="form-control" id="exampleInputPassword1" [placeholder]="'lastName' | transloco" id="lastname"
           formControlName="lastname">
         <small class="text-danger "
           *ngIf="registerForm.get('lastname') && !registerForm.get('lastname')!.valid && registerForm.get('lastname')!.touched"><em>
@@ -24,14 +24,14 @@
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">{{ 'emailAddress' | transloco }}</label>
-        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" id="email"
+        <input type="email" class="form-control" aria-describedby="emailHelp" [placeholder]="'emailAddress' | transloco" id="email"
           formControlName="email">
         <small class="text-danger "
           *ngIf="registerForm.get('email') && !registerForm.get('email')!.valid && registerForm.get('email')!.touched"><em>{{ 'emailConf' | transloco }}</em></small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'password' | transloco }}</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" id="password"
+        <input type="password" class="form-control" id="exampleInputPassword1" [placeholder]="'password' | transloco" id="password"
           formControlName="password">
         <small><em>{{ 'passMin' | transloco }}</em></small>
         <div><small class="text-danger "
@@ -40,7 +40,7 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'confPass' | transloco }}</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="confirmpassword"
+        <input type="password" class="form-control" id="exampleInputPassword1" [placeholder]="'confirmPassword' | transloco"
           id="confirmpassword" formControlName="confirmpassword">
 
         <div><small class="text-danger"

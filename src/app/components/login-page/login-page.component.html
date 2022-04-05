@@ -14,14 +14,14 @@
     <form [formGroup]="loginForm" #f="ngForm" (submit)="login()">
       <div class="form-group">
         <label for="exampleInputEmail1" >{{ 'emailAddress' | transloco }}</label>
-        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" id="email" formControlName="email">
+        <input type="email" class="form-control" aria-describedby="emailHelp" [placeholder]=" 'emailAddress' | transloco "  id="email" formControlName="email">
         <small class="text-danger "
-      *ngIf="loginForm.get('email') && !loginForm.get('email')!.valid && loginForm.get('email')!.touched"><em>{{ 'emalReq' | transloco }}</em></small>
+      *ngIf="loginForm.get('email') && !loginForm.get('email')!.valid && loginForm.get('email')!.touched"><em>{{ 'emailReq' | transloco }}</em></small>
 
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" id="password" formControlName="password">
+        <label for="exampleInputPassword1">{{ 'password' | transloco }}</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" [placeholder]=" 'password' | transloco "  id="email" id="password" formControlName="password">
 
         <small class="text-danger "
         *ngIf="loginForm.get('password') && !loginForm.get('password')!.valid && loginForm.get('password')!.touched"><em>{{ 'passReq' | transloco }}</em></small>

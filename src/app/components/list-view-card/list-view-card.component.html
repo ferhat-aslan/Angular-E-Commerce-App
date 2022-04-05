@@ -1,6 +1,6 @@
 <main class="row list-items">
-<figure class="col-md-3 mt-1"><img width="95px" height="95px" class="img-fluid img-responsive rounded list-image" [src]="product.image"></figure>
-    <div class="col-md-6 mt-1">
+<figure class="col-md-3 col-sm-3 mt-1"><img width="95px" height="95px" class="img-fluid img-responsive rounded list-image" [src]="product.image"></figure>
+    <div class="col-md-6 col-sm-6 mt-1">
       <h5>{{product.title}}</h5>
       <div class="d-flex flex-row" style="align-items: center;color: orangered;justify-content: start;display: flex;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
@@ -12,7 +12,7 @@
       <div class="mt-1 mb-1 spec-1"><span>{{product.category |titlecase}}</span></div>
       <p class="text-justify text-truncate para mb-0">{{product.description | titlecase}}<br><br></p>
     </div>
-    <div class="right-item align-items-center align-content-center col-md-3 border-left mt-1">
+    <div class="right-item align-items-center align-content-center col-md-3 col-sm-3  border-left mt-1">
       <div class="d-flex flex-row align-items-center">
         <h4 class="mr-1"><strong>{{product.price |currency:'USD'}}</strong></h4>
       </div>

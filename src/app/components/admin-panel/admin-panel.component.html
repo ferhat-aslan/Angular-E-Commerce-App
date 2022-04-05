@@ -62,7 +62,36 @@
           <div class="cards">{{ 'income' | transloco }}</div>
         </div>
       </section> </mat-tab>
-      <mat-tab label="Orders"> Content 3 </mat-tab>
+      <mat-tab label="Orders">
+        <h1>Orders</h1>
+<div class="container rounded  p-md-5">
+  <div class="table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">{{ 'userName' | transloco }}</th>
+                  <th scope="col">{{ 'product' | transloco }} No</th>
+                  <th scope="col">{{ 'count' | transloco }}</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="text-center" *ngFor="let item of allOrder">
+                  <td class="pt-3"> {{item.userName}}
+                  </td>
+                  <td class="pt-3 mt-1">{{item.orders.product_id}}</td>
+                  <td class="pt-3">1</td>
+
+              </tr>
+              <tr id="spacing-row">
+                  <td></td>
+
+          </tbody>
+      </table>
+  </div>
+</div>
+
+      </mat-tab>
     </mat-tab-group>
 
 

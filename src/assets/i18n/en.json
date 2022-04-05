@@ -94,7 +94,10 @@
   "passMin":"Password to be min 5 char.",
   "confPass":"Confirm Password",
   "passMatch": "Passwords must be match.",
-  "profile":"Profile"
+  "profile":"Profile",
+  "LovePro":"Love this project?",
+  "giveStar":"Give my repo a star.",
+  "userName":"User Name"
 
 
 }

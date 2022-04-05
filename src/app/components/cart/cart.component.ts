@@ -59,7 +59,9 @@ OrderList:Order[]=[];
     this.OrderList=this.cartItems.map((item:any)=>{
       //all cart items convert to Order model
       return{
-        user_id:this.user.id,orders:{product_id:item.id,count:1}
+        userName:`${this.user.firstname} ${this.user.lastname}` ,
+        user_id:this.user.id,
+        orders:{product_id:item.id,count:1}
       }
     });
 
@@ -75,11 +77,11 @@ for (let index = 0; index < this.OrderList.length; index++) {
 
 //a confirm dialog package was used.
     Swal.fire({
-      title: 'Type your address and credit card',
-      inputPlaceholder: 'Type your address here...',
+      title: 'Adress and Credit Cart',
+      inputPlaceholder: '"typeYourAdress" | transloco',
       html:
-    '<input id="swal-input1" class="swal2-input" placeholder="type your address">' +
-    '<input id="swal-input2" class="swal2-input" placeholder="type your credit cart">',
+    '<input id="swal-input1" class="swal2-input" placeholder="Address...">' +
+    '<input id="swal-input2" class="swal2-input" placeholder="Credit Card...">',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -100,5 +102,13 @@ for (let index = 0; index < this.OrderList.length; index++) {
 
 
 
+  }
+  adminControl() {
+
+
+    if ((JSON.parse(localStorage.getItem('user') as string))?.isAdmin==="true") {
+      return true;
+    }
+    return false;
   }
 }

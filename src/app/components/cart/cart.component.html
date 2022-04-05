@@ -1,14 +1,14 @@
 <ng-container *ngIf="leng == 0">
-  <div class="text-center empty">{{ 'youdidnt' | transloco }}</div>
-  <div>
-    <button
-      [routerLink]="['../home']"
-      class="btn btn-dark text-center empty"
-      style="display: block; width: 125px"
-    >
-    {{ 'gotoshop' | transloco }}
-    </button>
-  </div></ng-container
+  <div class="text-center empty row">{{ 'youdidnt' | transloco }}<button
+    [routerLink]="['../home']"
+    class="btn btn-dark text-center"
+    style="display: block; width: 125px"
+  >
+  {{ 'gotoshop' | transloco }}
+  </button></div>
+
+
+  </ng-container
 >
 <ng-container *ngIf="leng >= 1"
   ><section class="card">
@@ -77,7 +77,7 @@
             <option class="text-muted">{{ 'delivery' | transloco }}</option>
           </select>
           <p>{{ 'givecode' | transloco }}</p>
-          <input id="code" placeholder="Enter your code" />
+          <input id="code" [placeholder]="'enteryourcode' | transloco" />
         </form>
         <div
           class="row"
@@ -88,7 +88,7 @@
             &dollar; {{ totalPrice! | number: "1.0-0" }}
           </div>
         </div>
-        <button class="btn" (click)="order()">{{ 'checkOut' | transloco }}</button>
+        <button [disabled]="adminControl()" class="btn" (click)="order()">{{ 'checkOut' | transloco }}</button>
       </div>
     </div>
   </section></ng-container

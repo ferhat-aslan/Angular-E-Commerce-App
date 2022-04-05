@@ -12,22 +12,28 @@
         <input type="text" class="form-control" id="exampleInputPassword1" [placeholder]="'firstName' | transloco" id="firstname"
           formControlName="firstname">
         <small class="text-danger "
-          *ngIf="registerForm.get('firstname') && !registerForm.get('firstname')!.valid && registerForm.get('firstname')!.touched"><em>{{ 'firstReq' | transloco }}</em></small>
+          *ngIf="registerForm.get('firstname') && !registerForm.get('firstname')!.valid && registerForm.get('firstname')!.touched;else firts_content"><em>{{ 'firstReq' | transloco }}</em></small>
+          <ng-template #firts_content><label
+            >      </label> </ng-template>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'lastName' | transloco }}</label>
         <input type="text" class="form-control" id="exampleInputPassword1" [placeholder]="'lastName' | transloco" id="lastname"
           formControlName="lastname">
         <small class="text-danger "
-          *ngIf="registerForm.get('lastname') && !registerForm.get('lastname')!.valid && registerForm.get('lastname')!.touched"><em>
+          *ngIf="registerForm.get('lastname') && !registerForm.get('lastname')!.valid && registerForm.get('lastname')!.touched;else last_content"><em>
             {{ 'lastReq' | transloco }}</em></small>
+            <ng-template #last_content><label
+              >      </label> </ng-template>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">{{ 'emailAddress' | transloco }}</label>
         <input type="email" class="form-control" aria-describedby="emailHelp" [placeholder]="'emailAddress' | transloco" id="email"
           formControlName="email">
         <small class="text-danger "
-          *ngIf="registerForm.get('email') && !registerForm.get('email')!.valid && registerForm.get('email')!.touched"><em>{{ 'emailConf' | transloco }}</em></small>
+          *ngIf="registerForm.get('email') && !registerForm.get('email')!.valid && registerForm.get('email')!.touched;else email_content"><em>{{ 'emailConf' | transloco }}</em></small>
+          <ng-template #email_content><label
+            >      </label> </ng-template>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">{{ 'password' | transloco }}</label>
@@ -35,7 +41,10 @@
           formControlName="password">
         <small><em>{{ 'passMin' | transloco }}</em></small>
         <div><small class="text-danger "
-            *ngIf="registerForm.get('password') && !registerForm.get('password')!.valid && registerForm.get('password')!.touched"><em>{{ 'passReq' | transloco }}</em></small></div>
+            *ngIf="registerForm.get('password') && !registerForm.get('password')!.valid && registerForm.get('password')!.touched;else password_content"><em>{{ 'passReq' | transloco }}</em></small>
+            <ng-template #password_content><label
+              >      </label> </ng-template>
+          </div>
 
       </div>
       <div class="form-group">
@@ -44,7 +53,9 @@
           id="confirmpassword" formControlName="confirmpassword">
 
         <div><small class="text-danger"
-            *ngIf="registerForm.get('confirmpassword')?.hasError('confirmedValidator')"><em>{{ 'passMatch' | transloco }}</em></small>
+            *ngIf="registerForm.get('confirmpassword')?.hasError('confirmedValidator');else confirm_content"><em>{{ 'passMatch' | transloco }}</em></small>
+            <ng-template #confirm_content><label
+              >      </label> </ng-template>
         </div>
 
       </div>

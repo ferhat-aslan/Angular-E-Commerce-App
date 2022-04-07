@@ -97,7 +97,8 @@
   "profile":"Profil",
   "LovePro":"Projeyi Beğendiniz mi?",
   "giveStar":"Repo'ya bir yıldız koy.",
-  "userName":"Kullanıcı Adı"
+  "userName":"Kullanıcı Adı",
+  "emailUsed":"Bu email adresi kullanıldı."
 
 
 }

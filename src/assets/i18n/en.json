@@ -97,7 +97,8 @@
   "profile":"Profile",
   "LovePro":"Love this project?",
   "giveStar":"Give my repo a star.",
-  "userName":"User Name"
+  "userName":"User Name",
+  "emailUsed":"This Email adress already was used."
 
 
 }

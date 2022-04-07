@@ -78,24 +78,43 @@ sub!:Subscription;
 
   register() {
     if (this.registerForm.valid) {
-      //a user model was defined.
-      this.user={
-        firstname: this.registerForm.value.firstname,
-        lastname: this.registerForm.value.lastname,
-        email: this.registerForm.value.email,
-        password: this.registerForm.value.password,
-        isAdmin:'false',
-        token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
-
-      };
-      //sent the user model to server, and suscribed for the request.
-    this.sub=  this.authSer.registerUser(this.user).subscribe((req) => {
+      this.authSer.login().subscribe(
         //the suscribe method has two output.
         //if reguest ended up succesfully
-        this.snakSer.createSnackbar('success', this.translocoService.translate('successfull'));
-        this.router.navigate(['login']);
-      });
-    }
+        (res: any) => {
+          const user = res.find((a: any) => {
+            return (
+              a.email === this.registerForm.value.email
+            );
+          });
+          if (user) {
+              this.registerForm.reset();
+              this.snakSer.createSnackbar('success', this.translocoService.translate('emailUsed'));
+          }
+        else{
+ //a user model was defined.
+ this.user={
+  firstname: this.registerForm.value.firstname,
+  lastname: this.registerForm.value.lastname,
+  email: this.registerForm.value.email,
+  password: this.registerForm.value.password,
+  isAdmin:'false',
+  token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+
+};
+//sent the user model to server, and suscribed for the request.
+this.sub=  this.authSer.registerUser(this.user).subscribe((req) => {
+  //the suscribe method has two output.
+  //if reguest ended up succesfully
+  this.snakSer.createSnackbar('success', this.translocoService.translate('successfull'));
+  this.router.navigate(['login']);
+});
+        }
+        })
+      }
+
+
+
   }
   get f() {
     return this.registerForm.controls;

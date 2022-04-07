@@ -70,4 +70,5 @@ export class ProductService {
   editProduct<T>(id:any,product:any):Observable<T>{
     return this.http.patch<T>("https://patika-server-app.herokuapp.com/products/"+id,product).pipe();
   }
+
 }

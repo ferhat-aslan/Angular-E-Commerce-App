@@ -1,7 +1,7 @@
 <h1 align="center"><img src="./609859a191abe5d64b17fed3_Patika logo.png" alt="" width="90" height="90" />Angular E-Commerce App(Patika)<img src="./mwby4rcvpnpqlutrnk2k.webp" alt="" width="90" height="90" /></h1>
 
 
-<h2 align="center"><a href="https://angular-e-commerce-app.vercel.app/">LIVE :tv:</a></h2>
+<h2 align="center"><a href="https://patika-final-project.vercel.app/">LIVE :tv:</a></h2>
 <div align="center"><img src="https://img.shields.io/github/last-commit/164-orion-innovation-turkey-bootcamp/hafta4-odev-assignment-ferhat-aslan" alt="Star Badge"/><img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
 <a href="https://github.com/ferhat-aslan" ><img src="https://img.shields.io/github/followers/ferhat-aslan?label=Ferhat%20Aslan&style=social" /> </a></div>
 <h3 align="center">Languages and Tools:</h3>
@@ -26,13 +26,30 @@
 
 ## Video
 
-https://user-images.githubusercontent.com/83245111/159362797-874b9e7b-fb5d-4645-bd17-a97e0622ebd7.mp4
+
+https://user-images.githubusercontent.com/83245111/161829176-8278b8ef-4099-4771-b75d-96254bf13ce5.mp4
+
+
 
 ## About Project
- This Project is Patika-Orion Innovation Turkey Angular Bootcamp assignment. Developed using Angular 13 and Bootstrap 5. The server is active on heroku. Also, you can test the project live in Vercel.
+ This Project is Patika-Orion Innovation Turkey Angular Bootcamp assignment.  The server is active on heroku. Also, you can test the project live in Vercel.(Admin Account:admin@admin.com 12345----Customer Account:test@test.com 12345)
+- Transloco package was used for internationalization.
+- The app provides dual language support. (English and Turkish)
+- Angular material and bootstrap 5 were used for the design.
+- Product cards are designed as reusable components. (List-view-Component/Grid-view-Compoonent)
+- Semantic HTML elements were used to make the application SEO friendly.(main-section-figure-article-etc...)
+- Lazy loading was used to increase application opening performance. (Admin-Panel)
+- The app includes 4  guards(is-admin:to check if User is admin then will allow to go admin-panel,login:to check if User is logged, then will allow to go profile page and show products,logged:to check if User is logged,then wont allow to go again register and login page. lasty unsaved:to check if User has unsaved changes, If has ,then will warm user.)
+
+<h2 align="center"><img src="https://user-images.githubusercontent.com/83245111/161787665-4acbdb20-0cfa-480a-b4e9-2b5d09cdf8c1.png"></h2>
+<h2 align="center"><img src="https://user-images.githubusercontent.com/83245111/161829474-8d283be6-3733-4b3a-a262-91670e777534.PNG" width="330"><img src="https://user-images.githubusercontent.com/83245111/161829614-a0d60788-53ad-428a-9656-62d688475ce4.PNG" width="330"><img src="https://user-images.githubusercontent.com/83245111/161829695-f5152a2b-427c-4205-89d7-eac2a366d5eb.PNG" width="330"></h2>
+
+
+
 
 ## Used Packages And Modules
 
+- Transloco
 - AppRoutingModule
 - HttpClientModule
 - FormsModule
@@ -41,6 +58,8 @@ https://user-images.githubusercontent.com/83245111/159362797-874b9e7b-fb5d-4645-
 - Font Awesome
 - Bootstrap 5
 - Google Fonts
+- Angular Material
+- Chart.js
 
 ## Getting Started
 
@@ -51,7 +70,7 @@ https://user-images.githubusercontent.com/83245111/159362797-874b9e7b-fb5d-4645-
  :electric_plug: Server is online on Heroku. You dont need to do anything.
 
 ## Prerequisites
-
+- NodeJS
 - npm
 - Angular 13
 - Vs Code
@@ -76,8 +95,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [Linkedin](https://linkedin.com/in/aslanferhat) - aslanferhat16@gmail.com
+Ferhat ASLAN - [Linkedin](https://linkedin.com/in/aslanferhat) - aslanferhat16@gmail.com
 
-Project Link: [https://github.com/164-orion-innovation-turkey-bootcamp/hafta4-odev-assignment-ferhat-aslan](https://github.com/164-orion-innovation-turkey-bootcamp/hafta4-odev-assignment-ferhat-aslan)
+Project Link: [https://github.com/ferhat-aslan/Patika-Final-Project/](https://github.com/ferhat-aslan/Patika-Final-Project/)
 
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/aslanferhat

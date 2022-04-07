@@ -39,7 +39,8 @@ https://user-images.githubusercontent.com/83245111/161829176-8278b8ef-4099-4771-
 - Product cards are designed as reusable components. (List-view-Component/Grid-view-Compoonent)
 - Semantic HTML elements were used to make the application SEO friendly.(main-section-figure-article-etc...)
 - Lazy loading was used to increase application opening performance. (Admin-Panel)
-- The app includes 4  guards(is-admin:to check if User is admin then will allow to go admin-panel,login:to check if User is logged, then will allow to go profile page and show products,logged:to check if User is logged,then wont allow to go again register and login page. lasty unsaved:to check if User has unsaved changes, If has ,then will warm user.)
+- The app includes 4  guards(is-admin:to check if User is admin then will allow to go admin-panel,login:to check if User is logged, then will allow to go profile page and show products,logged:to check if User is logged,then wont allow to go again register and login page. lastly unsaved:to check if User has unsaved changes, If has ,then will warn user.)
+- This app provides responsive design through Bootstrap 5.
 
 <h2 align="center"><img src="https://user-images.githubusercontent.com/83245111/161787665-4acbdb20-0cfa-480a-b4e9-2b5d09cdf8c1.png"></h2>
 <h2 align="center"><img src="https://user-images.githubusercontent.com/83245111/161829474-8d283be6-3733-4b3a-a262-91670e777534.PNG" width="330"><img src="https://user-images.githubusercontent.com/83245111/161829614-a0d60788-53ad-428a-9656-62d688475ce4.PNG" width="330"><img src="https://user-images.githubusercontent.com/83245111/161829695-f5152a2b-427c-4205-89d7-eac2a366d5eb.PNG" width="330"></h2>

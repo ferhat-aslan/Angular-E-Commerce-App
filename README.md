@@ -79,7 +79,7 @@ https://user-images.githubusercontent.com/83245111/161829176-8278b8ef-4099-4771-
 ## Installation
 1. Clone the repo
 ```sh
-git clone https://github.com/164-orion-innovation-turkey-bootcamp/hafta4-odev-assignment-ferhat-aslan.git
+git clone https://github.com/ferhat-aslan/Patika-Final-Project.git
 ```
 2. Install NPM packages
 ```sh
